@@ -1,0 +1,1 @@
+puts "cba".split('').sort.join()
