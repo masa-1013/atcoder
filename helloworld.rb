@@ -1,1 +1,3 @@
-puts "cba".split('').sort.join()
+4.downto(1) do |i|
+  puts i
+end
