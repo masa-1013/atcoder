@@ -6,8 +6,7 @@
       "name": "Debug Local File",
       "type": "Ruby",
       "request": "launch",
-      "program": "${workspaceRoot}/helloworld.rb",
-      "useBundler": true
+      "program": "${workspaceRoot}/helloworld.rb"
     }
   ]
 }

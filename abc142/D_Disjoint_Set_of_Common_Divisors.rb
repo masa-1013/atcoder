@@ -1,4 +1,4 @@
-A, B = 1, 2019
+A, B = gets.split().map(&:to_i)
 common_divisors = []
 
 def is_prime_number(num)
@@ -9,6 +9,7 @@ def is_prime_number(num)
 end
 
 def divisors(num)
+  return [1] if num == 1
   div = []
   (1..num**0.5).each do |i|
     if num % i == 0
