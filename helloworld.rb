@@ -1,26 +1,18 @@
-A, B = 1, 2019
-common_divisors = []
-
-def is_prime_number(num)
-  (2..num**0.5).each do |i|
-    return false if num % i == 0
-  end
-  return true
-end
-
-def divisors(num)
-  div = []
-  (1..num**0.5).each do |i|
-    if num % i == 0
-      div.push(i) if is_prime_number(i)
-      div.push(num/i) if is_prime_number(num/i)
+def my_permutation(seed, curr=[], &proc)
+    if seed.empty?
+      proc.call(curr)
+      return
     end
-  end
-  div
+  
+    0.upto(seed.size-1) do |i|
+      newSeed = seed.dup
+      newSeed.delete_at(i)
+      my_permutation(newSeed, curr + [seed[i]], &proc)
+    end
 end
 
-divisors(A).each do |i|
-  common_divisors.push(i) if B % i == 0
+my_permutation([1, 2, 3]) do |x|
+    p x
 end
 
-puts common_divisors.count
+
