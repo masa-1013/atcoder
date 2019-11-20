@@ -1,5 +1,5 @@
-N = 3
-a = 1,0,0
+N = gets.to_i
+a = gets.split().map(&:to_i)
 
 box = []
 
