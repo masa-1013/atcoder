@@ -1,28 +1,32 @@
-N, M = 6,1
-a = [3]
+N = 4
+S = "123123"
 
+ans = 0
 
+1000.times do |i|
+  num = "%03d" % i
+  tmp = S.dup
+  index = tmp.index(num[0])
 
-dp = []
-
-10.times do
-  dp.push(0)
+  if index == nil
+    next
+  else
+    tmp.slice!(index)
+  end
+  index = tmp.index(num[1])
+  if index == nil
+    next
+  else
+    tmp.slice!(index)
+  end
+  index = tmp.index(num[2])
+  if index == nil
+    next
+  else
+    tmp.slice!(index)
+  end
+  puts num
+  ans += 1
 end
 
-dp[0] = 1
-
-(1..N).each do |i|
-  i1 = 0
-  i2 = 0
-  unless a.include?(i-1)
-    i1 = dp[i-1]
-  end
-  if i > 1
-    unless a.include?(i-2)
-      i2 = dp[i-2]
-    end
-  end
-  dp[i] = i1 + i2
-end
-
-puts dp[N-1] % 1000000007
+puts ans
