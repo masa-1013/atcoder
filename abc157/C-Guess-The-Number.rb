@@ -1,10 +1,14 @@
-N, M = 3,3
+N, M = gets.split().map(&:to_i)
 if N == 1 && M == 0
   puts 0
   exit
 end
-array = ["1 7","3 2","1 7"]
+array = []
 ans = Array.new(N)
+
+M.times do 
+  array.push(gets)
+end
 
 array = array.uniq.map do |i|
   i.split().map(&:to_i)
@@ -22,8 +26,10 @@ array.each do |i, j|
   ans[i-1] = j
 end
 
+ans[0] = 1 unless ans[0] 
+
 ans = ans.map do |i|
-  i = 0 unless i
+  i ? i : 0
 end
 
 puts ans.join().to_i
