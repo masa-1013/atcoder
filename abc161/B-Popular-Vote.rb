@@ -1,7 +1,7 @@
-n, m = 3, 2
-a = [380, 19, 1]
+n, m = gets.split().map(&:to_i)
+a = gets.split().map(&:to_i)
 vote = a.inject(&:+)
-border = vote / (4*m)
+border = vote / (4.0*m)
 
 a.sort.reverse.slice(0, m).each do |num|
   if num < border
