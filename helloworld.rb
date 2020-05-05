@@ -1,18 +1,19 @@
-n, m, q = "4 6 10".split().map(&:to_i)
-array = [[2, 4, 1, 86568], [1, 4, 0, 90629], [2, 3, 0, 90310], [3, 4, 1, 29211], [3, 4, 3, 78537], [3, 4, 2, 8580], [1, 2, 1, 96263], [1, 4, 2, 2156], [1, 2, 0, 94325], [1, 4, 3, 94328]]
+x = "33".to_i
+m = {}
 
-
-
-
-ans = 0
-
-[*1..m].combination(n).to_a.each do |comb|
-  sum = 0
-  array.each do |a, b, c, d|
-    sum += d if comb[b-1] - comb[a-1] == c
+120.times do |i|
+  a5 = i**5
+  m[a5] = i
+  b5 = x - a5
+  if b5 >= 0
+    if m[b5]
+      puts "#{i} #{-m[b5]}"
+      break
+    end
+  else
+    if m[-b5]
+      puts "#{a} #{m[-b5]}"
+      break
+    end
   end
-  ans = [ans, sum].max
 end
-
-puts ans
-
