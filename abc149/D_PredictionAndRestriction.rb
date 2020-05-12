@@ -1,6 +1,6 @@
-n, k = "7 1".split().map(&:to_i)
-r, s, p = "100 10 1".split().map(&:to_i)
-t = "ssssppr".chomp.split('')
+n, k = gets.split().map(&:to_i)
+r, s, p = gets.split().map(&:to_i)
+t = gets.chomp.split('')
 
 hand = {}
 hand["r"] = p
@@ -13,7 +13,7 @@ t.each_with_index do |i, index|
     array << hand[i]
     next
   end
-  if t[index-2] == i && array[index-2] != 0
+  if t[index-k] == i && array[index-k] != 0
     array << 0
   else
     array << hand[i]
