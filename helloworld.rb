@@ -1,10 +1,7 @@
-n, k = "100000 5".split().map(&:to_f)
+n, q = gets.split().map(&:to_i)
+s = gets.chomp
 
-sum = 0
-
-(1..n).each do |i|
-  t = Math.log(k/i, 2).ceil
-  sum += (1/n * (1/2.0)**t)
+q.times do 
+  l, r = gets.split().map(&:to_i)
+  puts s[l-1..r-1].scan("AC").count
 end
-
-puts sum
